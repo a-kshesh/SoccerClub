@@ -1,0 +1,77 @@
+﻿@model PlayerDetailsViewModel;
+<h3>Player Details</h3>
+<hr />
+<div class="card detailCard">
+    <div class="card-body pb-0">
+        <form method="post" asp-action="PlayerEdit">
+            <input type="hidden" asp-for="@Model.Player.PlayerId" />
+            <div class="row items">
+                <div class="col-lg-1">
+                    <i class="fa fa-user fa-3x userIcon"></i>
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" asp-for="Player.Name" class="form-control name" value="@Model.Player.Name" placeholder="Enter Player name">
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Country</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input class="form-control" value="@Model.Player.Country" asp-for="Player.Country" type="text" placeholder="Enter country of origin" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Date of Birth</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="date" class="form-control" value="@Model.Player.Dob" asp-for="Player.Dob" placeholder="Enter DOB" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Club</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <select class="form-control" asp-for="Player.ClubId">
+                            <option selected="@(@Model.Player.ClubId == null?"selected":null)" value=null>No Club</option>
+                            @foreach (Club c in @Model.Clubs)
+                            {
+                                <option selected="@(@Model.Player.ClubId == @c.ClubId?"selected":null)" value="@c.ClubId">@c.Name</option>
+                            }
+                        </select>
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Goals</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="text" value="@Model.Player.Goals" class="form-control" asp-for="Player.Goals" placeholder="Enter number of goals" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Salary</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="text" value="@Model.Player.Salary" class="form-control" asp-for="Player.Salary" placeholder="Enter Salary" />
+                </div>
+            </div>
+            <hr />
+            <div class="row items">
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4 text-right">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a class="btn btn-primary" asp-action="Players">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

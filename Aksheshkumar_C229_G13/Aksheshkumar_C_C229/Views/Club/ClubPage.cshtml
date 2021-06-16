@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Club>
+
+    <h3>Clubs</h3>
+    <hr />
+    <div class="row list">
+        
+        <div class=" col-xl-4 col-md-3">
+            <div class="card mainCard mb-3 p-0">
+                <a class="link" asp-action="NewClub">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3 icon">
+                                <i class="fa fa-plus fa-2x userIcon"></i>
+                            </div>
+                            <div class="col-lg-9">
+                                <h5 class="card-title">New Club</h5>
+                                <p class="card-text">Click to Add New club</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        @foreach (Club c in Model)
+        {
+            <div class="col-xl-4 col-md-3 mb-3">
+                <div class="card mainCard pb-0">
+                    <a class="link" asp-action="ClubDetails" asp-route-clubId="@c.ClubId">
+                        <div class="card-body pb-0 pr-0">
+                            <div class="row">
+                                <div class="col-lg-3 icon">
+                                    <i class="fas fa-futbol fa-2x userIcon"></i>
+                                </div>
+                                <div class="col-lg-9 pl-0">
+                                    <h5 class="card-title">@c.Name</h5>
+                                    <p class="card-text">@c.Country</p>
+                                </div>
+                            </div>
+                            <div class="row managePlayerLink float-right pr-1">
+                                <a asp-action="ManagePlayer" asp-controller="Player" asp-route-clubId="@c.ClubId" class="card-link">Manage Player</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>

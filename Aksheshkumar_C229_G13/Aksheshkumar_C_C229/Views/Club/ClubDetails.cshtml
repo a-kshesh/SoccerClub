@@ -1,0 +1,101 @@
+﻿@model ManageClubViewModel;
+    
+        <h3>Club Details</h3>
+        <hr />
+        <div class="card detailCard">
+            <div class="card-body pb-0">
+                    <div class="row items">
+                        <div class="col-lg-1">
+                            <i class="fas fa-futbol fa-3x userIcon"></i>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="name">@Model.Club.Name</label>
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">About</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @Model.Club.About
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">Country</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @Model.Club.Country
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">Created On</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @Model.Club.CreatedOn
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">Trophies Won</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @Model.Club.NumOfTrofies @(" Trophies")
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">Revenue</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @("$")@Model.Club.Revenue
+                        </div>
+                    </div>
+                    <div class="row items">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <label class="tag">Number of Fans</label>
+                        </div>
+                        <div class="col-lg-6 value">
+                                @Model.Club.NumOfFans
+                        </div>
+                    </div>
+                        <div class="row items">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-2">
+                                <label class="tag">Players</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Country</td>
+                                    </tr>
+                                    @foreach (Player p in Model.Club.Players)
+                                    {
+                                        <tr>
+                                            <td>@p.Name</td>
+                                            <td>@p.Country</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    <hr>
+                    <div class="row items">
+                        <div class="col-lg-8"></div>
+                        <div class="col-lg-4 text-right">
+                            <a class="btn btn-warning" asp-controller="Club" asp-action="ClubEdit" asp-route-clubId="@Model.Club.ClubId">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Club" asp-action="ClubDelete" asp-route-clubId="@Model.Club.ClubId">Delete</a>
+                            <a class="btn btn-primary" asp-action="ClubPage">Back</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+ 

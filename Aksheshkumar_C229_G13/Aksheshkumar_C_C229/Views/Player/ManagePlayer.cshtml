@@ -1,0 +1,92 @@
+﻿@model  ManagePlayerViewModel;
+
+<h3>Manage Players</h3>
+<hr/>
+<div class="card detailCard">
+    <div class="card-body pb-0">
+        <div class="row items">
+            <div class="col-lg-2">
+                <label class="tag">Club</label>
+            </div>
+            <div class="col-lg-6 value">
+                @Model.Club.Name
+            </div>
+        </div>
+        <div class="row items">
+            <div class="col-lg-2">
+                <label class="tag">UnRegistered Players</label>
+            </div>
+            <div class="col-lg-6 value">
+                @if (Model.UnRegisteredPlayer.Count() == 0)
+                {
+                    <label>No UnRegistered Player</label>
+                }
+                else
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Country</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        @foreach (Player p in Model.UnRegisteredPlayer)
+                        {
+                            <tr>
+                                <td>@p.Name</td>
+                                <td>@p.Country</td>
+                                <td>
+                                    <form asp-action="RegisterClub" method="post">
+                                        <input type="hidden" name="clubId" value="@Model.Club.ClubId" />
+                                        <input type="hidden" name="playerID" value="@p.PlayerId" />
+                                        <button type="submit" class="btn btn-success btn-sm">Add</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+            </div>
+        </div>
+        <div class="row items">
+            <div class="col-lg-2">
+                <label class="tag">Registered Players</label>
+            </div>
+            <div class="col-lg-6 value">
+                @if (Model.Players.Count() == 0)
+                {
+                    <label>No Player are registered in this club</label>
+                }
+                else
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Country</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        @foreach (Player p in Model.Players)
+                        {
+                            <tr>
+                                <td>@p.Name</td>
+                                <td>@p.Country</td>
+                                <td>
+                                    <form asp-action="DeRegisterClub" method="post">
+                                        <input type="hidden" name="clubId" value="@Model.Club.ClubId" />
+                                        <input type="hidden" name="playerId" value="@p.PlayerId" />
+                                        <button type="submit" class="btn btn-success btn-sm">DeRegister</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

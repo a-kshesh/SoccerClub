@@ -1,0 +1,139 @@
+﻿.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #03132d;
+    overflow-x: hidden;
+}
+
+    .sidenav a {
+        padding: 6px 8px 6px 6px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+    .sidenav div {
+        padding: 6px 8px 16px 6px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+.home {
+    background-image: url('../images/homepageimg.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.icon {
+    text-align: center;
+    vertical-align: middle;
+}
+.userIcon {
+    color: #b1aeae;
+}
+
+.clubIcon{
+    color:
+}
+
+.main {
+    margin-left: 160px;
+    padding: 0px 10px;
+}
+
+.mainCard {
+    width: 336px;
+    height: 132px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius:10px;
+    padding:12px;
+}
+
+.mainCard:hover {
+        border: 2px solid lightblue;
+        box-shadow: 2px 3px lightblue;
+}
+
+.detailCard {
+    height: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+    padding: 12px;
+}
+.link  {
+    color:inherit;
+    text-decoration:none;
+    cursor:grab;
+}
+
+.link:hover {
+    color: inherit;
+    text-decoration: none;
+    cursor: grab;
+}
+
+.list{
+    margin-bottom:20px;
+}
+
+.logo{
+    width:60px;
+}
+
+.name {
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+.items{
+    margin-bottom:10px;
+}
+
+.tag {
+    color: #7a787a;
+    font-size: 16px;
+    font-weight: 100;
+}
+.value{
+    font-size:16px;
+}
+.btn-a {
+    color: #fff;
+    background-color: #010417;
+    border-color: #2b4753;
+}
+.managePlayerLink {
+    padding-top : 12px;
+}
+
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+

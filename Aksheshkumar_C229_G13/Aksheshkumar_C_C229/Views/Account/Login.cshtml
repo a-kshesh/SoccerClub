@@ -1,0 +1,45 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html style="height:100%">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <title>Soccer Club</title>
+</head>
+<body style="height:100%">
+    <div id="login" class="home">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" asp-action="Login" asp-controller="Account" method="post">
+                            <input type="hidden" asp-for="ReturnUrl" />
+                                <h3 class="text-center">Login</h3>
+                                <div class="form-group">
+                                    <label asp-for="Name">Username:</label><br>
+                                    <div><span asp-validation-for="Name" class="text-danger"></span></div>
+                                    <input asp-for="Name" type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password">Password:</label><br>
+                                    <div><span asp-validation-for="Password" class="text-danger"></span></div>
+                                    <input asp-for="Password" class="form-control">
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

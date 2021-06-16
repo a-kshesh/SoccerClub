@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <title>Soccer Club</title>
+</head>
+<body>
+    <div class="sidenav">
+        <a class="border-bottom" asp-controller="Home" asp-action="Index">Soccer Club</a>
+        <a asp-controller="Club" asp-action="ClubPage"><i class="fas fa-futbol pr-2"></i>Clubs</a>
+        <a asp-controller="Player" asp-action="Players"><i class="fa fa-user pr-2"></i>Players</a>
+        <a asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt pr-2"></i>Logout</a>
+    </div>  
+    <div class="main pt-3">
+        @RenderBody()
+    </div>
+</body>
+</html>

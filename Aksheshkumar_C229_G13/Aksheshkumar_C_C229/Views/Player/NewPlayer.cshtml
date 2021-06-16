@@ -1,0 +1,80 @@
+﻿@model AddPlayerViewModel
+
+    <h3>New Player Details</h3>
+    <hr />
+    <div class="card detailCard pb-0">
+        <div class="card-body pb-0">
+            <form method="post" asp-action="NewPlayer">
+                @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                <div class="row items form-group">
+                    <div class="col-lg-1">
+                        <i class="fa fa-user fa-3x userIcon"></i>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" asp-for="Player.Name" class="form-control name" placeholder="Enter Player name">
+                    </div>
+                </div>
+                <br>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label asp-for="Player.Country" class="tag">Country</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input class="form-control" asp-for="Player.Country" type="text" placeholder="Enter country of origin" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label asp-for="Player.Dob" class="tag">Date of Birth</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="date" class="form-control" asp-for="Player.Dob" placeholder="Enter DOB" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Player.ClubId">Club</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <select class="form-control" asp-for="Player.ClubId" id="sel1">
+                            <option value=null>No Club</option>
+                            @foreach (Club c in @Model.Clubs)
+                            {
+                                <option value="@c.ClubId">@c.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label asp-for="Player.Goals" class="tag">Goals</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="text" class="form-control" asp-for="Player.Goals" placeholder="Enter number of goals" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Player.Salary">Salary</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="text" class="form-control" asp-for="Player.Salary" placeholder="Enter Salary" />
+                    </div>
+                </div>
+                <hr>
+                <div class="row items form-group">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-warning" asp-action="Players">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

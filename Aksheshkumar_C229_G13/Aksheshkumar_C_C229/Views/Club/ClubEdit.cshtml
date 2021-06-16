@@ -1,0 +1,82 @@
+﻿@model ManageClubViewModel;
+
+<h3>Club Details</h3>
+<hr />
+<div class="card detailCard">
+    <div class="card-body pb-0">
+        <form method="post" asp-action="ClubEdit">
+            <input type="hidden" asp-for="@Model.Club.ClubId" />
+            <div class="row items">
+                <div class="col-lg-1">
+                    <i class="fas fa-futbol fa-3x userIcon"></i>
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" asp-for="Club.Name" class="form-control name" value="@Model.Club.Name" placeholder="Enter Club name">
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">About</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <textarea class="form-control" rows="4" value="@Model.Club.About" asp-for="Club.About" placeholder="Enter club description"></textarea>
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Country</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input class="form-control" value="@Model.Club.Country" asp-for="Club.Country" type="text" placeholder="Enter country of origin" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Created On</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="date" class="form-control" value="@Model.Club.CreatedOn" asp-for="Club.CreatedOn" placeholder="Enter created on date" />
+
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Trophies Won</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="text" value="@Model.Club.NumOfTrofies" asp-for="Club.NumOfTrofies" class="form-control" placeholder="Enter trophies won" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Revenue</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="text" value="@Model.Club.Revenue" asp-for="Club.Revenue" class="form-control" placeholder="Enter revenue generated" />
+                </div>
+            </div>
+            <div class="row items">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <label class="tag">Number of Fans</label>
+                </div>
+                <div class="col-lg-6 value">
+                        <input type="text" value="@Model.Club.NumOfFans" asp-for="Club.NumOfFans" class="form-control" placeholder="Enter number of Fans" />
+                </div>
+            </div>
+            <hr>
+            <div class="row items">
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4 text-right">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a class="btn btn-primary" asp-action="ClubPage">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

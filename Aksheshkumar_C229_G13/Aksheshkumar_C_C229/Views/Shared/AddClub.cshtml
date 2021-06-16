@@ -1,0 +1,82 @@
+﻿@model AddClubViewModel
+    <div class="card detailCard pb-0">
+        <div class="card-body pb-0">
+            <form method="post" asp-action="NewClub">
+                @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                <div class="row items form-group">
+                    <div class="col-lg-1">
+                        <img class="logo" src="~/images/img.jpg" />
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" asp-for="Club.Name" class="form-control name" placeholder="Enter club name">
+                    </div>
+                </div>
+                <br>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.About">About</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <textarea class="form-control" asp-for="Club.About" placeholder="Enter club description"></textarea>
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.Country">Country</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input class="form-control" asp-for="Club.Country" type="text" placeholder="Enter country of origin" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.CreatedOn">Created On</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="date" class="form-control" asp-for="Club.CreatedOn" placeholder="Enter created on date" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.NumOfTrofies">Trophies Won</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="text" asp-for="Club.NumOfTrofies" class="form-control" placeholder="Enter trophies won" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.Revenue">Revenue</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="text" asp-for="Club.Revenue" class="form-control" placeholder="Enter revenue generated" />
+                    </div>
+                </div>
+                <div class="row items form-group">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag" asp-for="Club.NumOfFans">Number of Fans</label>
+                    </div>
+                    <div class="col-lg-4 value">
+                        <input type="text" asp-for="Club.NumOfFans" class="form-control" placeholder="Enter number of Fans" />
+                    </div>
+                </div>
+                <hr>
+                <div class="row items form-group">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-warning" asp-action="ClubPage">Cancel</button>
+                    </div>
+                    <div class="col-lg-2">
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

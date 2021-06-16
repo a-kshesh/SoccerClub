@@ -1,0 +1,77 @@
+﻿@model  PlayerDetailsViewModel;
+    <h3>Player Details</h3> 
+    <hr/>
+    <div class="card detailCard">
+        <div class="card-body pb-0">
+                <input type="hidden" asp-for="@Model.Player.PlayerId"/>
+                <div class="row items">
+                    <div class="col-lg-1">
+                        <i class="fa fa-user fa-3x userIcon"></i>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="name">@Model.Player.Name</label>
+                    </div>
+                </div>
+                <div class="row items">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag">Country</label>
+                    </div>
+                    <div class="col-lg-6 value">
+                            @Model.Player.Country
+                    </div>
+                </div>
+                <div class="row items">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag">Date of Birth</label>
+                    </div>
+                    <div class="col-lg-6 value">
+                            @Model.Player.Dob
+                    </div>
+                </div>
+                <div class="row items">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag">Club</label>
+                    </div>
+                    <div class="col-lg-6 value">
+                            @if (Model.Player.Club != null)
+                            {
+                                @Model.Player.Club.Name
+                            }
+                            else
+                            {
+                                @("-")
+                            }
+                    </div>
+                </div>
+                <div class="row items">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag">Goals</label>
+                    </div>
+                    <div class="col-lg-6 value">
+                            @Model.Player.Goals @(" Goals")
+                    </div>
+                </div>
+                <div class="row items">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <label class="tag">Salary</label>
+                    </div>
+                    <div class="col-lg-6 value">
+                            @("$")@Model.Player.Salary
+                    </div>
+                </div>
+                <hr />
+                <div class="row items">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4 text-right">
+                            <a class="btn btn-warning" asp-controller="Player" asp-action="PlayerEdit" asp-route-playerId="@Model.Player.PlayerId">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Player" asp-action="PlayerDelete" asp-route-playerId="@Model.Player.PlayerId">Delete</a>    
+                        <a class="btn btn-primary" asp-action="Players">Back</a>
+                    </div>
+                </div>
+        </div>
+    </div>
